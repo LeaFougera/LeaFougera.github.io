@@ -35,6 +35,13 @@ function Hero() {
           initial="hidden"
           animate="visible"
         >
+          <motion.div className="hero-image-container" variants={itemVariants}>
+            <img
+              src="/profile.jpeg"
+              alt="Léa Fougera-Lempereur"
+              className="hero-image"
+            />
+          </motion.div>
           <motion.h1 variants={itemVariants}>
             Léa Fougera-Lempereur
           </motion.h1>

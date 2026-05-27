@@ -6,14 +6,25 @@
 .main-content {
   flex: 1;
   margin-left: 240px;
-  padding: var(--spacing-2xl);
   overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+.section-container {
+  min-height: 100vh;
+  padding: var(--spacing-2xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @media (max-width: 768px) {
   .main-content {
     margin-left: 0;
     margin-bottom: 80px;
+  }
+
+  .section-container {
     padding: var(--spacing-lg);
   }
 }
