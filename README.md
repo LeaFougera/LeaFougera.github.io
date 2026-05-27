@@ -1,16 +1,85 @@
-# React + Vite
+# Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Professional portfolio website built with React, Vite, and Framer Motion.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Responsive design with elegant beige/cream color palette
+- Smooth animations with Framer Motion
+- Dynamic GitHub projects integration via API
+- Multi-language CV download (French & English)
+- Sections: Hero, About, Experience, Contact, Projects
+- GitHub Pages hosting
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React 19
+- Vite 8
+- Framer Motion 12
+- React Icons 5
+- Axios
+- CSS3 with custom properties
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Prerequisites
+
+- Node.js 18+
+- npm or yarn
+
+### Installation
+
+```bash
+npm install
+```
+
+### Development
+
+```bash
+npm run dev
+```
+
+The app will run on http://localhost:5173
+
+### Build
+
+```bash
+npm run build
+```
+
+### Deploy
+
+```bash
+npm run deploy
+```
+
+This will build and deploy to GitHub Pages.
+
+## Project Structure
+
+```
+src/
+├── components/        # Reusable UI components
+├── pages/            # Page sections (Hero, About, Experience, etc.)
+├── hooks/            # Custom hooks (useGitHubProjects)
+├── styles/           # Global styles and variables
+└── App.jsx           # Main app component
+
+public/
+├── cv/               # CV files (FR & EN)
+└── favicon.svg
+```
+
+## CV Files
+
+Add your CV files to `public/cv/`:
+- `CV_Fougera-Lempereur_EN.pdf`
+- `CV_Fougera-Lempereur_FR.pdf`
+
+## Customization
+
+Edit the design variables in `src/styles/variables.css` to customize colors, typography, and spacing.
+
+## License
+
+MIT
