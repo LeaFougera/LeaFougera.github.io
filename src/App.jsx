@@ -1,7 +1,9 @@
+import Hero from './pages/Hero'
+
 function App() {
   return (
     <main>
-      {/* Sections will be added here */}
+      <Hero />
     </main>
   )
 }
