@@ -1,6 +1,4 @@
 import { motion } from 'framer-motion'
-import Section from '../components/Section'
-import Container from '../components/Container'
 import './Experience.css'
 
 function Experience() {
@@ -63,48 +61,46 @@ function Experience() {
   }
 
   return (
-    <Section id="experience" className="experience-section">
-      <Container>
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="experience-header"
-        >
-          <h2>Experience</h2>
-        </motion.div>
+    <div className="experience-section">
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="experience-header"
+      >
+        <h2>Experience</h2>
+      </motion.div>
 
-        <motion.div
-          className="timeline"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-        >
-          {experiences.map((exp, index) => (
-            <motion.div key={index} className="timeline-item" variants={itemVariants}>
-              <div className="timeline-marker">
-                <div className="marker-dot" />
+      <motion.div
+        className="timeline"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        {experiences.map((exp, index) => (
+          <motion.div key={index} className="timeline-item" variants={itemVariants}>
+            <div className="timeline-marker">
+              <div className="marker-dot" />
+            </div>
+            <div className="timeline-content">
+              <div className="experience-header-content">
+                <h3>{exp.title}</h3>
+                <span className="company-name">{exp.company}</span>
+                <span className="period">{exp.period}</span>
               </div>
-              <div className="timeline-content">
-                <div className="experience-header-content">
-                  <h3>{exp.title}</h3>
-                  <span className="company-name">{exp.company}</span>
-                  <span className="period">{exp.period}</span>
-                </div>
-                <p className="description">{exp.description}</p>
-                <ul className="highlights">
-                  {exp.highlights.map((highlight, hIndex) => (
-                    <li key={hIndex}>{highlight}</li>
-                  ))}
-                </ul>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
-      </Container>
-    </Section>
+              <p className="description">{exp.description}</p>
+              <ul className="highlights">
+                {exp.highlights.map((highlight, hIndex) => (
+                  <li key={hIndex}>{highlight}</li>
+                ))}
+              </ul>
+            </div>
+          </motion.div>
+        ))}
+      </motion.div>
+    </div>
   )
 }
 

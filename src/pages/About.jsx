@@ -1,7 +1,5 @@
 import { motion } from 'framer-motion'
 import { FaPython, FaReact, FaDatabase, FaCloud } from 'react-icons/fa'
-import Section from '../components/Section'
-import Container from '../components/Container'
 import Card from '../components/Card'
 import './About.css'
 
@@ -52,53 +50,51 @@ function About() {
   }
 
   return (
-    <Section id="about" className="about-section">
-      <Container>
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="about-header"
-        >
-          <h2>About</h2>
-          <p className="about-intro">
-            I'm a Software Engineer with a passion for building innovative solutions at the intersection of AI, data engineering, and cloud technologies. Currently pursuing my Digital Engineer degree at ISEN Méditerranée with a focus on Machine Learning and Data Science.
-          </p>
-        </motion.div>
+    <div className="about-section">
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="about-header"
+      >
+        <h2>About</h2>
+        <p className="about-intro">
+          I'm a Software Engineer with a passion for building innovative solutions at the intersection of AI, data engineering, and cloud technologies. Currently pursuing my Digital Engineer degree at ISEN Méditerranée with a focus on Machine Learning and Data Science.
+        </p>
+      </motion.div>
 
-        <motion.div
-          className="skills-grid"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-        >
-          {skillCategories.map((category, index) => {
-            const IconComponent = category.icon
-            return (
-              <motion.div key={index} variants={itemVariants}>
-                <Card>
-                  <div className="skill-card">
-                    <div className="skill-icon">
-                      <IconComponent />
-                    </div>
-                    <h3>{category.title}</h3>
-                    <div className="skill-tags">
-                      {category.skills.map((skill, skillIndex) => (
-                        <span key={skillIndex} className="skill-tag">
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
+      <motion.div
+        className="skills-grid"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        {skillCategories.map((category, index) => {
+          const IconComponent = category.icon
+          return (
+            <motion.div key={index} variants={itemVariants}>
+              <Card>
+                <div className="skill-card">
+                  <div className="skill-icon">
+                    <IconComponent />
                   </div>
-                </Card>
-              </motion.div>
-            )
-          })}
-        </motion.div>
-      </Container>
-    </Section>
+                  <h3>{category.title}</h3>
+                  <div className="skill-tags">
+                    {category.skills.map((skill, skillIndex) => (
+                      <span key={skillIndex} className="skill-tag">
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </Card>
+            </motion.div>
+          )
+        })}
+      </motion.div>
+    </div>
   )
 }
 

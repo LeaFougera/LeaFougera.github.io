@@ -1,8 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { FaEnvelope, FaPhone, FaLinkedin, FaGithub } from 'react-icons/fa'
-import Section from '../components/Section'
-import Container from '../components/Container'
 import Button from '../components/Button'
 import './Contact.css'
 
@@ -72,78 +70,76 @@ function Contact() {
   }
 
   return (
-    <Section id="contact" className="contact-section">
-      <Container>
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="contact-header"
-        >
-          <h2>Get in Touch</h2>
-          <p>Let's connect and explore opportunities together</p>
+    <div className="contact-section">
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="contact-header"
+      >
+        <h2>Get in Touch</h2>
+        <p>Let's connect and explore opportunities together</p>
+      </motion.div>
+
+      <motion.div
+        className="contact-content"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        <motion.div className="contact-methods" variants={itemVariants}>
+          <h3>Contact Information</h3>
+          <div className="methods-grid">
+            {contactMethods.map((method, index) => {
+              const IconComponent = method.icon
+              return (
+                <a
+                  key={index}
+                  href={method.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="contact-method"
+                >
+                  <div className="method-icon">
+                    <IconComponent />
+                  </div>
+                  <div className="method-info">
+                    <p className="method-label">{method.label}</p>
+                    <p className="method-value">{method.value}</p>
+                  </div>
+                </a>
+              )
+            })}
+          </div>
         </motion.div>
 
-        <motion.div
-          className="contact-content"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-        >
-          <motion.div className="contact-methods" variants={itemVariants}>
-            <h3>Contact Information</h3>
-            <div className="methods-grid">
-              {contactMethods.map((method, index) => {
-                const IconComponent = method.icon
-                return (
-                  <a
-                    key={index}
-                    href={method.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="contact-method"
-                  >
-                    <div className="method-icon">
-                      <IconComponent />
-                    </div>
-                    <div className="method-info">
-                      <p className="method-label">{method.label}</p>
-                      <p className="method-value">{method.value}</p>
-                    </div>
-                  </a>
-                )
-              })}
+        <motion.div className="cv-section" variants={itemVariants}>
+          <h3>Download CV</h3>
+          <p>Choose your preferred language</p>
+          <div className="cv-controls">
+            <div className="language-toggle">
+              <button
+                className={`toggle-btn ${cvLanguage === 'en' ? 'active' : ''}`}
+                onClick={() => setCvLanguage('en')}
+              >
+                English
+              </button>
+              <button
+                className={`toggle-btn ${cvLanguage === 'fr' ? 'active' : ''}`}
+                onClick={() => setCvLanguage('fr')}
+              >
+                Français
+              </button>
             </div>
-          </motion.div>
-
-          <motion.div className="cv-section" variants={itemVariants}>
-            <h3>Download CV</h3>
-            <p>Choose your preferred language</p>
-            <div className="cv-controls">
-              <div className="language-toggle">
-                <button
-                  className={`toggle-btn ${cvLanguage === 'en' ? 'active' : ''}`}
-                  onClick={() => setCvLanguage('en')}
-                >
-                  English
-                </button>
-                <button
-                  className={`toggle-btn ${cvLanguage === 'fr' ? 'active' : ''}`}
-                  onClick={() => setCvLanguage('fr')}
-                >
-                  Français
-                </button>
-              </div>
-              <Button variant="primary" onClick={handleCVDownload}>
-                Download CV
-              </Button>
-            </div>
-          </motion.div>
+            <Button variant="primary" onClick={handleCVDownload}>
+              Download CV
+            </Button>
+          </div>
         </motion.div>
-      </Container>
-    </Section>
+      </motion.div>
+    </div>
   )
 }
 

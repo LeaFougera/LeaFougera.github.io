@@ -1,6 +1,4 @@
 import { motion } from 'framer-motion'
-import Section from '../components/Section'
-import Container from '../components/Container'
 import './Hero.css'
 
 function Hero() {
@@ -27,38 +25,36 @@ function Hero() {
   }
 
   return (
-    <Section id="hero" className="hero-section">
-      <Container>
-        <motion.div
-          className="hero-content"
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          <motion.div className="hero-image-container" variants={itemVariants}>
-            <img
-              src="/profile.jpeg"
-              alt="Léa Fougera-Lempereur"
-              className="hero-image"
-            />
-          </motion.div>
-          <motion.h1 variants={itemVariants}>
-            Léa Fougera-Lempereur
-          </motion.h1>
-          <motion.p className="hero-subtitle" variants={itemVariants}>
-            Software Engineer
-          </motion.p>
-          <motion.p className="hero-description" variants={itemVariants}>
-            Passionate about building elegant software solutions with a focus on AI, data engineering, and cloud technologies
-          </motion.p>
-          <motion.div className="hero-cta" variants={itemVariants}>
-            <a href="#contact" className="cta-button">
-              Get in Touch
-            </a>
-          </motion.div>
+    <div className="hero-section">
+      <motion.div
+        className="hero-content"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <motion.div className="hero-image-container" variants={itemVariants}>
+          <img
+            src="/profile.jpeg"
+            alt="Léa Fougera-Lempereur"
+            className="hero-image"
+          />
         </motion.div>
-      </Container>
-    </Section>
+        <motion.h1 variants={itemVariants}>
+          Léa Fougera-Lempereur
+        </motion.h1>
+        <motion.p className="hero-subtitle" variants={itemVariants}>
+          Software Engineer
+        </motion.p>
+        <motion.p className="hero-description" variants={itemVariants}>
+          Passionate about building elegant software solutions with a focus on AI, data engineering, and cloud technologies
+        </motion.p>
+        <motion.div className="hero-cta" variants={itemVariants}>
+          <a href="#contact" className="cta-button">
+            Get in Touch
+          </a>
+        </motion.div>
+      </motion.div>
+    </div>
   )
 }
 
