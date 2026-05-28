@@ -16,17 +16,17 @@ function About() {
     {
       title: t('about.skills.aiSystems'),
       icon: FaPython,
-      skills: ['RAG', 'LLM Orchestration', 'LangChain', 'CrewAI', 'API Design', 'Agentic Workflows'],
+      skills: ['RAG', 'LLM Orchestration', 'LangChain', 'API Design', 'Agentic Workflows', "Machine Learning", "Deep Learning", "NLP"],
     },
     {
       title: t('about.skills.dataAnalysis'),
       icon: FaDatabase,
-      skills: ['NumPy', 'Pandas', 'Statistical Modeling', 'Data Preprocessing', 'Visualization'],
+      skills: ['NumPy', 'Pandas', 'Data Preprocessing', 'Visualization', 'Biostatistics'],
     },
     {
       title: t('about.skills.cloudTools'),
       icon: FaCloud,
-      skills: ['Google Cloud', 'PostgreSQL', 'Git', 'Agile/Scrum', 'REST APIs', 'Docker'],
+      skills: ['GCP', 'AWS', 'PostgreSQL', 'Git', 'Agile/Scrum', 'REST APIs', 'Docker'],
     },
   ]
 
