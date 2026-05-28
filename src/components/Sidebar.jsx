@@ -1,12 +1,16 @@
 import './Sidebar.css'
+import { useLanguage } from '../contexts/LanguageContext'
+import LanguageSwitcher from './LanguageSwitcher'
 
 function Sidebar({ activeSection, onSectionChange }) {
+  const { t } = useLanguage()
+
   const sections = [
-    { id: 'hero', label: 'Home' },
-    { id: 'about', label: 'About' },
-    { id: 'experience', label: 'Experience' },
-    { id: 'projects', label: 'Projects' },
-    { id: 'contact', label: 'Contact' }
+    { id: 'hero', label: t('nav.home') },
+    { id: 'about', label: t('nav.about') },
+    { id: 'experience', label: t('nav.experience') },
+    { id: 'projects', label: t('nav.projects') },
+    { id: 'contact', label: t('nav.contact') }
   ]
 
   return (
@@ -24,6 +28,7 @@ function Sidebar({ activeSection, onSectionChange }) {
             </li>
           ))}
         </ul>
+        <LanguageSwitcher />
       </nav>
     </aside>
   )

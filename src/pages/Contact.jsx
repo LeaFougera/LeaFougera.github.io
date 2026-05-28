@@ -1,34 +1,36 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { FaEnvelope, FaPhone, FaLinkedin, FaGithub } from 'react-icons/fa'
+import { useLanguage } from '../contexts/LanguageContext'
 import Button from '../components/Button'
 import './Contact.css'
 
 function Contact() {
+  const { t } = useLanguage()
   const [cvLanguage, setCvLanguage] = useState('en')
 
   const contactMethods = [
     {
       icon: FaEnvelope,
-      label: 'Email',
+      label: t('contact.email'),
       value: 'lea.fougera-lempereur@hotmail.com',
       link: 'mailto:lea.fougera-lempereur@hotmail.com',
     },
     {
       icon: FaPhone,
-      label: 'Phone',
+      label: t('contact.phone'),
       value: '+33 6 28 84 87 70',
       link: 'tel:+33628848770',
     },
     {
       icon: FaLinkedin,
-      label: 'LinkedIn',
+      label: t('contact.linkedin'),
       value: 'linkedin.com/in/léa-fougera',
       link: 'https://linkedin.com',
     },
     {
       icon: FaGithub,
-      label: 'GitHub',
+      label: t('contact.github'),
       value: 'github.com/leafougera',
       link: 'https://github.com/leafougera',
     },
@@ -78,8 +80,8 @@ function Contact() {
         viewport={{ once: true }}
         className="contact-header"
       >
-        <h2>Get in Touch</h2>
-        <p>Let's connect and explore opportunities together</p>
+        <h2>{t('contact.title')}</h2>
+        <p>{t('contact.subtitle')}</p>
       </motion.div>
 
       <motion.div
@@ -90,7 +92,7 @@ function Contact() {
         viewport={{ once: true }}
       >
         <motion.div className="contact-methods" variants={itemVariants}>
-          <h3>Contact Information</h3>
+          <h3>{t('contact.info')}</h3>
           <div className="methods-grid">
             {contactMethods.map((method, index) => {
               const IconComponent = method.icon
@@ -116,25 +118,25 @@ function Contact() {
         </motion.div>
 
         <motion.div className="cv-section" variants={itemVariants}>
-          <h3>Download CV</h3>
-          <p>Choose your preferred language</p>
+          <h3>{t('contact.cv.title')}</h3>
+          <p>{t('contact.cv.choose')}</p>
           <div className="cv-controls">
             <div className="language-toggle">
               <button
                 className={`toggle-btn ${cvLanguage === 'en' ? 'active' : ''}`}
                 onClick={() => setCvLanguage('en')}
               >
-                English
+                {t('contact.cv.english')}
               </button>
               <button
                 className={`toggle-btn ${cvLanguage === 'fr' ? 'active' : ''}`}
                 onClick={() => setCvLanguage('fr')}
               >
-                Français
+                {t('contact.cv.french')}
               </button>
             </div>
             <Button variant="primary" onClick={handleCVDownload}>
-              Download CV
+              {t('contact.cv.download')}
             </Button>
           </div>
         </motion.div>

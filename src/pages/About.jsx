@@ -1,27 +1,30 @@
 import { motion } from 'framer-motion'
 import { FaPython, FaReact, FaDatabase, FaCloud } from 'react-icons/fa'
+import { useLanguage } from '../contexts/LanguageContext'
 import Card from '../components/Card'
 import './About.css'
 
 function About() {
+  const { t } = useLanguage()
+
   const skillCategories = [
     {
-      title: 'Programming',
+      title: t('about.skills.programming'),
       icon: FaReact,
       skills: ['Python', 'JavaScript', 'React', 'Java', 'Django', 'Kotlin', 'Node.js', 'SQL'],
     },
     {
-      title: 'AI & Agentic Systems',
+      title: t('about.skills.aiSystems'),
       icon: FaPython,
       skills: ['RAG', 'LLM Orchestration', 'LangChain', 'CrewAI', 'API Design', 'Agentic Workflows'],
     },
     {
-      title: 'Data Analysis',
+      title: t('about.skills.dataAnalysis'),
       icon: FaDatabase,
       skills: ['NumPy', 'Pandas', 'Statistical Modeling', 'Data Preprocessing', 'Visualization'],
     },
     {
-      title: 'Cloud & Tools',
+      title: t('about.skills.cloudTools'),
       icon: FaCloud,
       skills: ['Google Cloud', 'PostgreSQL', 'Git', 'Agile/Scrum', 'REST APIs', 'Docker'],
     },
@@ -58,9 +61,9 @@ function About() {
         viewport={{ once: true }}
         className="about-header"
       >
-        <h2>About</h2>
+        <h2>{t('about.title')}</h2>
         <p className="about-intro">
-          I'm a Software Engineer with a passion for building innovative solutions at the intersection of AI, data engineering, and cloud technologies. Currently pursuing my Digital Engineer degree at ISEN Méditerranée with a focus on Machine Learning and Data Science.
+          {t('about.intro')}
         </p>
       </motion.div>
 

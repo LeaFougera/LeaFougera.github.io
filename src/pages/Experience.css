@@ -95,7 +95,22 @@
 }
 
 .experience-header-content {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
   margin-bottom: var(--spacing-md);
+}
+
+.company-logo {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+}
+
+.experience-text {
+  flex: 1;
 }
 
 .timeline-content h3 {

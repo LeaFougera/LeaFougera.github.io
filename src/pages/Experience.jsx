@@ -1,41 +1,34 @@
 import { motion } from 'framer-motion'
+import { useLanguage } from '../contexts/LanguageContext'
 import './Experience.css'
 
 function Experience() {
+  const { t } = useLanguage()
+
   const experiences = [
     {
-      title: 'Software Engineer Apprentice',
-      company: 'Capgemini',
-      period: 'Oct 2025 – Present',
-      description: 'Building innovative software solutions with focus on AI and data engineering.',
-      highlights: [
-        'RAG Chatbot: Developed semantic search over internal documents using LangChain',
-        'Web Scraping POC: Designed maritime data scraping pipeline with Python and Streamlit',
-        'Text2SQL: Contributed to Text-to-SQL engine through code review and documentation',
-      ],
+      title: t('experience.capgemini.title'),
+      company: t('experience.capgemini.company'),
+      period: t('experience.capgemini.period'),
+      description: t('experience.capgemini.description'),
+      highlights: t('experience.capgemini.highlights'),
+      logo: '/capgemini-logo.png',
     },
     {
-      title: 'Data Analyst & Developer Intern',
-      company: 'Cilcare',
-      period: 'June to September 2025',
-      description: 'Analyzed clinical datasets and built software tools for biomedical research.',
-      highlights: [
-        'Analyzed large clinical datasets; improved data accuracy by 15%',
-        'Developed REST APIs with Django and React frontend for data visualization',
-        'Implemented data preprocessing pipelines and statistical models',
-        'Collaborated with researchers on statistical analysis automation',
-      ],
+      title: t('experience.cilcare.title'),
+      company: t('experience.cilcare.company'),
+      period: t('experience.cilcare.period'),
+      description: t('experience.cilcare.description'),
+      highlights: t('experience.cilcare.highlights'),
+      logo: '/cilcare-logo.png',
     },
     {
-      title: 'Digital Engineer Degree',
-      company: 'ISEN Méditerranée',
-      period: 'Expected 2026',
-      description: 'Computer Science & Data major with focus on ML, DL, and Algorithms.',
-      highlights: [
-        'Major in Computer Science & Data',
-        'Coursework: Machine Learning, Deep Learning, Algorithms, Statistics',
-        'Exchange semester at Universiti Putra Malaysia (2023)',
-      ],
+      title: t('experience.isen.title'),
+      company: t('experience.isen.company'),
+      period: t('experience.isen.period'),
+      description: t('experience.isen.description'),
+      highlights: t('experience.isen.highlights'),
+      logo: '/isen-logo.png',
     },
   ]
 
@@ -69,7 +62,7 @@ function Experience() {
         viewport={{ once: true }}
         className="experience-header"
       >
-        <h2>Experience</h2>
+        <h2>{t('experience.title')}</h2>
       </motion.div>
 
       <motion.div
@@ -86,9 +79,14 @@ function Experience() {
             </div>
             <div className="timeline-content">
               <div className="experience-header-content">
-                <h3>{exp.title}</h3>
-                <span className="company-name">{exp.company}</span>
-                <span className="period">{exp.period}</span>
+                {exp.logo && (
+                  <img src={exp.logo} alt={exp.company} className="company-logo" />
+                )}
+                <div className="experience-text">
+                  <h3>{exp.title}</h3>
+                  <span className="company-name">{exp.company}</span>
+                  <span className="period">{exp.period}</span>
+                </div>
               </div>
               <p className="description">{exp.description}</p>
               <ul className="highlights">

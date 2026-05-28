@@ -1,7 +1,9 @@
 import { motion } from 'framer-motion'
+import { useLanguage } from '../contexts/LanguageContext'
 import './Hero.css'
 
 function Hero() {
+  const { t } = useLanguage()
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -35,22 +37,22 @@ function Hero() {
         <motion.div className="hero-image-container" variants={itemVariants}>
           <img
             src="/profile.jpeg"
-            alt="Léa Fougera-Lempereur"
+            alt={t('hero.title')}
             className="hero-image"
           />
         </motion.div>
         <motion.h1 variants={itemVariants}>
-          Léa Fougera-Lempereur
+          {t('hero.title')}
         </motion.h1>
         <motion.p className="hero-subtitle" variants={itemVariants}>
-          Software Engineer
+          {t('hero.subtitle')}
         </motion.p>
         <motion.p className="hero-description" variants={itemVariants}>
-          Passionate about building elegant software solutions with a focus on AI, data engineering, and cloud technologies
+          {t('hero.description')}
         </motion.p>
         <motion.div className="hero-cta" variants={itemVariants}>
           <a href="#contact" className="cta-button">
-            Get in Touch
+            {t('hero.cta')}
           </a>
         </motion.div>
       </motion.div>

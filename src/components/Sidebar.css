@@ -11,6 +11,10 @@
 
 .sidebar-nav {
   padding: var(--spacing-2xl) var(--spacing-lg);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2xl);
 }
 
 .sidebar-menu {
@@ -18,6 +22,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--spacing-sm);
+  flex: 1;
 }
 
 .sidebar-link {

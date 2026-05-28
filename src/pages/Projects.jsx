@@ -1,10 +1,12 @@
 import { motion } from 'framer-motion'
 import { FaGithub, FaStar, FaCodeBranch } from 'react-icons/fa'
+import { useLanguage } from '../contexts/LanguageContext'
 import useGitHubProjects from '../hooks/useGitHubProjects'
 import Card from '../components/Card'
 import './Projects.css'
 
 function Projects() {
+  const { t } = useLanguage()
   const { projects, loading, error } = useGitHubProjects('leafougera')
 
   const containerVariants = {
@@ -38,19 +40,19 @@ function Projects() {
         viewport={{ once: true }}
         className="projects-header"
       >
-        <h2>Projects</h2>
-        <p>Featured repositories from GitHub</p>
+        <h2>{t('projects.title')}</h2>
+        <p>{t('projects.subtitle')}</p>
       </motion.div>
 
       {loading && (
         <motion.div className="loading" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-          Loading projects...
+          {t('projects.loading')}
         </motion.div>
       )}
 
       {error && (
         <motion.div className="error" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-          Unable to load projects. Please check back later.
+          {t('projects.error')}
         </motion.div>
       )}
 
@@ -79,7 +81,7 @@ function Projects() {
                   </div>
 
                   <p className="project-description">
-                    {project.description || 'No description available'}
+                    {project.description || t('projects.noDescription')}
                   </p>
 
                   {project.topics && project.topics.length > 0 && (
