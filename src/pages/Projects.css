@@ -98,21 +98,8 @@
 .project-footer {
   display: flex;
   align-items: center;
-  gap: var(--spacing-lg);
   padding-top: var(--spacing-md);
   border-top: 1px solid var(--border);
-}
-
-.project-stat {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  font-size: var(--font-size-sm);
-  color: var(--text-secondary);
-}
-
-.stat-icon {
-  color: var(--accent);
 }
 
 .project-language {
@@ -121,7 +108,6 @@
   gap: var(--spacing-sm);
   font-size: var(--font-size-sm);
   color: var(--text-secondary);
-  margin-left: auto;
 }
 
 .language-dot {

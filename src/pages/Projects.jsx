@@ -1,12 +1,13 @@
 import { motion } from 'framer-motion'
-import { FaGithub, FaStar, FaCodeBranch } from 'react-icons/fa'
+import { FaGithub } from 'react-icons/fa'
 import { useLanguage } from '../contexts/LanguageContext'
 import useGitHubProjects from '../hooks/useGitHubProjects'
+import projectDescriptions from '../i18n/projectDescriptions'
 import Card from '../components/Card'
 import './Projects.css'
 
 function Projects() {
-  const { t } = useLanguage()
+  const { t, language } = useLanguage()
   const { projects, loading, error } = useGitHubProjects('leafougera')
 
   const containerVariants = {
@@ -81,7 +82,7 @@ function Projects() {
                   </div>
 
                   <p className="project-description">
-                    {project.description || t('projects.noDescription')}
+                    {projectDescriptions[language]?.[project.name] || project.description || t('projects.noDescription')}
                   </p>
 
                   {project.topics && project.topics.length > 0 && (
@@ -94,22 +95,14 @@ function Projects() {
                     </div>
                   )}
 
-                  <div className="project-footer">
-                    <div className="project-stat">
-                      <FaStar className="stat-icon" />
-                      <span>{project.stargazers_count}</span>
-                    </div>
-                    <div className="project-stat">
-                      <FaCodeBranch className="stat-icon" />
-                      <span>{project.forks_count}</span>
-                    </div>
-                    {project.language && (
+                  {project.language && (
+                    <div className="project-footer">
                       <div className="project-language">
                         <span className="language-dot" />
                         {project.language}
                       </div>
-                    )}
-                  </div>
+                    </div>
+                  )}
                 </div>
               </Card>
             </motion.a>
